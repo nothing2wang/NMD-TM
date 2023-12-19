@@ -88,7 +88,7 @@ err(1)=norm(max(0,Theta)-X,'fro')/normX;
 time(1)=0;
 
 if param.display == 1
-    disp('Running 3B-NMD-TM, evolution of [iteration number : relative error in %]');
+    disp('Running NMD-TM, evolution of [iteration number : relative error in %]');
 end
 
 %Display setting parameters along the iterations
@@ -123,7 +123,7 @@ for i=1:param.maxit
         time(i+1)=time(i)+toc; %needed to have same time components as iterations
          if param.display == 1
             if mod(numdis,5) > 0, fprintf('\n'); end
-            fprintf('The algorithm has converged: ||X-max(0,WH)||/||X|| < %2.0d\n',param.tol);
+            fprintf('The NMD-TM algorithm has converged: ||X-max(0,WH)||/||X|| < %2.0d\n',param.tol);
         end
         break
     end
@@ -132,7 +132,7 @@ for i=1:param.maxit
         time(i+1)=time(i)+toc; %needed to have same time components as iterations
         if param.display == 1
             if mod(numdis,5) > 0, fprintf('\n'); end
-            fprintf('The algorithm has converged: rel. err.(i+1) - rel. err.(i+10) < %2.0d\n',param.tolerr);
+            fprintf('The NMD-TM algorithm has converged: rel. err.(i+1) - rel. err.(i+10) < %2.0d\n',param.tolerr);
         end
         break
         break
