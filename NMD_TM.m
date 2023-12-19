@@ -3,7 +3,7 @@ function [Theta,err,i,time]=NMD_TM(X,r,param)
 % Computes an approximate solution of the following non linear matrix
 % decomposition problem (NMD)
 %
-%       min_{Z,W,H} ||Z-WH||_F^2  s.t. rank(WH)<=r, max(0,Z)=X 
+%       min_{Z,W,H} 1/2*||Z-WH||_F^2 +lambda/2*(||W||_F^2+||H||_F^2)  s.t. rank(WH)<=r, max(0,Z)=X 
 % 
 % using a three blocks alternating minimization; 
 %
