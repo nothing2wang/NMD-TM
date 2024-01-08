@@ -2,7 +2,6 @@ clear all
 close all
 clc
 
-
 rep=2;  %number of runs for each algorithm---> it must be r>1
 
 %Choose the approximation rank
@@ -24,18 +23,8 @@ switch number
         [m,n]=size(X);
 end
 
-
 %Parameters setting
 param.maxit=300000; param.tol=1.e-4; param.tolerr = 0; param.time=20;
-
-%A-NMD acceleration parameters
-param.beta=0.7; param.eta=0.4; param.gamma=1.1; param.gamma_bar=1.05;
-
-%3B-NMD momentum parameters
-param.beta1=0.7; param.beta2=-0.1; param.lambda=0.0001;
-
-%A-EM momentum parameter
-param.alpha=0.6;
 
 %Set the interval for cubic spline interpolation for the average error
 c=100;
@@ -55,8 +44,6 @@ for k=1:rep
     param.W0 = ua; 
     param.H0 = sa*va';
     param.Theta0=param.W0*param.H0;
-    
-
     
     % NMD-TM
     param.beta1=0.95; param.beta2=-0.05; param.lambda=0.0001;
